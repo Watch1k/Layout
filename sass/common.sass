@@ -1,0 +1,384 @@
+@import reset
+@import lib/mixins
+@import compass
+/*----- Slick Slider Styles -----*/
+@import slick
+// @import icon-content-el/*.png
+
+// icons
+// $icon-content-el-sprite-dimensions: true
+// @include all-icon-content-el-sprites
+
+// fonts
++font(Roboto Regular, roboto-regular-webfont)
++font(Roboto Light, roboto-light-webfont)
++font(Roboto Medium, roboto-medium-webfont)
++font(Roboto Thin, roboto-thin-webfont)
++font(Roboto Black, roboto-black-webfont)
+$default-fonts: Arial, sans-serif
+$roboto: "Roboto Regular", $default-fonts
+$roboto-light: "Roboto Light", $default-fonts
+$roboto-medium: "Roboto Medium", $default-fonts
+$roboto-thin: "Roboto Thin", $default-fonts
+$roboto-black: "Roboto Black", $default-fonts
+
+// colors
+$green: #27ae60
+$green-light: #36c773
+$blue-gray: #2c3e50
+
+/*-------------------------------------------------------------------------*/
+/*----------------------------- MAIN STYLES -------------------------------*/
+/*-------------------------------------------------------------------------*/
+a:hover, a:focus
+	text-decoration: none
+a
+	color: inherit
+svg
+	width: 100%
+	height: 100%
+body
+	min-width: 320px
+	font-family: $roboto
+	font-size: 15px
+	line-height: 1.5625
+.wrapper
+	overflow: hidden
+	min-height: 100%
+	padding-bottom: 44px
+.container
+	max-width: 960px
+.footer
+	margin-top: -44px
+	height: 44px
+	color: #fff
+	line-height: 44px
+	text-align: center
+	background-color: $blue-gray
+/* Header */
+.header
+	height: 44px
+	background-color: $blue-gray
+	&-logo
+		height: 44px
+		font-family: $roboto-black
+		font-size: 25px
+		line-height: 44px
+		color: $green
+		text-align: center
+		text-transform: uppercase
+		background-color: #fff
+		a
+			display: block
+		a:hover
+			display: block
+			color: inherit
+	.nav-main
+		display: block
+		text-align: center
+		white-space: nowrap
+		li
+			display: inline-block
+			padding: 0 15px
+			color: #fff
+			line-height: 44px
+			a:hover
+				color: $green
+		+r(600)
+			display: none
+			position: absolute
+			z-index: 100
+			top: 44px
+			left: 0
+			width: 100%
+			background-color: $blue-gray
+			border-top: 1px solid #fff
+			border-bottom: 2px solid #fff
+			li
+				display: block
+	.green-btn
+		float: right
+		margin-top: 5px
+		height: 34px
+		width: 90px
+.green-btn
+	font-family: $roboto-medium
+	color: #fff
+	line-height: 32px
+	text-align: center
+	text-transform: uppercase
+	border-radius: 3px
+	background-color: $green
+	+background-image(linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%))
+	&:hover
+		color: #fff
+		background-color: $green-light
+/* Menu Toggle */
+#menu_toggle
+	display: none
+	float: right
+	position: relative
+	overflow: hidden
+	margin-top: 10px
+	margin-right: 10px
+	width: 24px
+	height: 24px
+	font-size: 0
+	text-indent: -9999px
+	appearance: none
+	background-color: transparent
+	cursor: pointer
+	transition: background 0.3s
+	transition: margin 0.2s
+	+r(600)
+		display: block
+	span
+		display: block
+		position: absolute
+		top: 50%
+		left: 0
+		right: 0
+		height: 2px
+		background: white
+		transition: background 0s 0.3s
+		&:before, &:after
+			position: absolute
+			display: block
+			left: 0
+			width: 100%
+			height: 2px
+			background-color: #fff
+			content: ""
+			transition-duration: 0.3s, 0.3s
+			transition-delay: 0.3s, 0s
+		&:before
+			top: -7px
+			transition-property: top, transform
+		&:after
+			bottom: -7px
+			transition-property: bottom, transform
+	&.is-active
+		background-color: transparent
+		span
+			background: none
+			&:before
+				top: 0
+				transform: rotate(45deg)
+			&:after
+				bottom: 0
+				transform: rotate(-45deg)
+			&:before, &:after
+				transition-delay: 0s, 0.3s
+/* Main Slider */
+.slider
+	&__in
+		font-family: $roboto-thin
+		font-size: 55px
+		line-height: 65px
+		color: #555
+		+r(720)
+			font-size: 35px
+			line-height: 40px
+		+r(600)
+			font-size: 25px
+			line-height: 30px
+		+r(480)
+			font-size: 20px
+			line-height: 22px
+		img.slider__in-bg
+			position: relative
+			z-index: -1
+			width: 100%
+		&-text-wrapper
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			text-align: center
+			> .container
+				height: 100%
+				> .row
+					height: 100%
+		&-text
+			position: relative
+			height: 100%
+			&__in
+				position: absolute
+				top: 50%
+				left: 0
+				right: 0
+				+translate(0,-50%)
+	.green-btn
+		display: inline-block
+		margin-top: 30px
+		margin-bottom: 40px
+		height: 40px
+		width: 80px
+		font-family: $roboto
+		font-size: 20px
+		line-height: 40px
+		+r(600)
+			margin-top: 0
+			margin-bottom: 0
+		+r(480)
+			height: 25px
+			line-height: 25px
+	.slick-dots
+		bottom: 20px
+		+r(720)
+			bottom: 0
+		+r(600)
+			height: 12px
+		button
+			width: 16px
+			height: 16px
+			background-color: $blue-gray
+			opacity: 0.5
+			+r(720)
+				width: 10px
+				height: 10px
+		.slick-active
+			button
+				opacity: 1
+	.slick-next
+		right: 50%
+		margin-right: -450px
+		margin-top: -15px
+		width: 16px
+		height: 30px
+		background: url("../img/icons/arrow.png") no-repeat center center
+		+r(960)
+			right: 10px
+			margin-right: 0
+	.slick-prev
+		left: 50%
+		margin-left: -450px
+		margin-top: -15px
+		width: 16px
+		height: 30px
+		background: url("../img/icons/arrow.png") no-repeat center center
+		transform: rotate(180deg)
+		+r(960)
+			left: 10px
+			margin-left: 0
+/* Article */
+.article
+	padding-top: 35px
+	padding-bottom: 70px
+	h2
+		margin-top: 10px
+		font-family: $roboto-light
+		font-size: 35px
+		color: $blue-gray
+		line-height: 45px
+		& + p
+			margin-top: 15px
+	p
+		color: #444
+	.small-text
+		font-size: 11px
+		color: $blue-gray
+		line-height: 30px
+	img
+		max-width: 100%
+	+r(800)
+		padding-top: 5px
+		padding-bottom: 25px
+/* Register */
+.register
+	padding-top: 75px
+	padding-bottom: 85px
+	font-family: $roboto-light
+	font-size: 20px
+	color: #555
+	background: url("../img/bg/register-bg.jpg") no-repeat center center
+	background-size: cover
+	&-wrap
+		padding-top: 20px
+		padding-bottom: 30px
+		background-color: #fff
+		border-radius: 3px
+		text-align: center
+	h3
+		font-family: $roboto-thin
+		font-size: 35px
+	.form-register
+		margin-top: 15px
+		.help-block.form-error
+			display: block
+			margin-top: 5px
+			font-family: $default-fonts
+			font-size: 14px
+			color: #D90101
+			line-height: 1.1
+	.field
+		& + .field
+			margin-top: 10px
+		&:last-child
+			margin-top: 20px
+	.green-btn
+		width: 120px
+		height: 50px
+	.form-input
+		padding: 0 15px
+		height: 50px
+		width: 100%
+		line-height: 50px
+		border-radius: 3px
+		box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
+		background-color: #f5f5f5
+		vertical-align: bottom
+		+placeholder-color(#555)
+	.form-select
+		width: 100%
+		padding: 0 15px
+		height: 50px
+		option:first-child
+			display: none
+	/* Selectric Styles */
+	.selectric
+		box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
+		.label
+			margin: 0 50px 0 15px
+			font-size: 20px
+			text-align: left
+		.button:after
+			top: 5px
+			border: 6px solid transparent
+			border-top-color: #555
+	.selectric-open .selectric
+		background-color: #f5f5f5
+	.selectric-hover
+		.selectric
+			.button
+				color: #555
+				&:after
+					border-top-color: #555
+	.selectric-items
+		padding-top: 3px
+		padding-bottom: 3px
+		border-radius: 3px
+		background-color: #fff
+		box-shadow: none
+	.selectric-scroll
+		li
+			padding: 0 0 0 15px
+			height: 50px
+			font-size: 20px
+			line-height: 50px
+			text-align: left
+			border-top: none
+			border-bottom: 1px solid #c4c4c4
+			&:first-child
+				display: none
+			&:nth-child(2)
+				height: 47px
+				line-height: 47px
+			&:last-child
+				height: 47px
+				line-height: 47px
+				border-bottom: none
+			&.selected
+				color: #fff
+				background-color: $green
